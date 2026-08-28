@@ -1,0 +1,2660 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>श्री सद्गुरुदेव मोबाइल एक्सेसरीज शॉप</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f1f5f9;
+  color:#111827
+}
+
+button,input,select,textarea{
+  font:inherit
+}
+
+button{
+  border:0;
+  border-radius:10px;
+  padding:11px 15px;
+  cursor:pointer
+}
+
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed
+}
+
+.header{
+  background:linear-gradient(135deg,#111827,#2563eb);
+  color:white;
+  padding:28px 15px;
+  text-align:center
+}
+
+.header h1{
+  margin:0;
+  font-size:28px
+}
+
+.header p{
+  margin:8px 0 0;
+  opacity:.9
+}
+
+.loginBox{
+  max-width:420px;
+  margin:50px auto;
+  padding:28px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 10px 35px #0002
+}
+
+.logo{
+  width:70px;
+  height:70px;
+  border-radius:18px;
+  background:#2563eb;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  margin:auto
+}
+
+.loginBox h2{
+  text-align:center
+}
+
+label{
+  font-weight:bold;
+  display:block;
+  margin-top:10px
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  margin-top:6px;
+  margin-bottom:12px;
+  background:white
+}
+
+.primary{background:#2563eb;color:white}
+.success{background:#16a34a;color:white}
+.danger{background:#dc2626;color:white}
+.warning{background:#d97706;color:white}
+.dark{background:#111827;color:white}
+.gray{background:#64748b;color:white}
+
+.hidden{
+  display:none!important
+}
+
+#app{
+  display:none
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:white;
+  padding:10px;
+  display:flex;
+  gap:8px;
+  overflow:auto;
+  box-shadow:0 2px 10px #0002
+}
+
+nav button{
+  white-space:nowrap;
+  background:#e0e7ff;
+  color:#1e3a8a
+}
+
+nav button.active{
+  background:#2563eb;
+  color:white
+}
+
+main{
+  max-width:1250px;
+  margin:auto;
+  padding:18px
+}
+
+.section{
+  display:none
+}
+
+.section.active{
+  display:block
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:14px
+}
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:17px;
+  box-shadow:0 4px 15px #0001
+}
+
+.cardIcon{
+  font-size:28px
+}
+
+.cardTitle{
+  color:#64748b;
+  font-size:14px;
+  margin-top:8px
+}
+
+.cardValue{
+  font-size:25px;
+  font-weight:bold;
+  margin-top:5px
+}
+
+.panel{
+  background:white;
+  padding:20px;
+  margin-top:17px;
+  border-radius:17px;
+  box-shadow:0 4px 15px #0001
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:14px
+}
+
+.tableWrap{
+  overflow:auto
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:750px
+}
+
+th,td{
+  padding:11px;
+  border-bottom:1px solid #e5e7eb;
+  text-align:left
+}
+
+th{
+  background:#f8fafc
+}
+
+.badge{
+  padding:5px 9px;
+  border-radius:20px;
+  background:#fee2e2;
+  color:#991b1b
+}
+
+.badgeGreen{
+  padding:5px 9px;
+  border-radius:20px;
+  background:#dcfce7;
+  color:#166534
+}
+
+.badgeYellow{
+  padding:5px 9px;
+  border-radius:20px;
+  background:#fef3c7;
+  color:#92400e
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px
+}
+
+.message{
+  padding:12px;
+  border-radius:10px;
+  margin-top:12px;
+  background:#eff6ff
+}
+
+.error{
+  background:#fee2e2;
+  color:#991b1b
+}
+
+.ok{
+  background:#dcfce7;
+  color:#166534
+}
+
+.aiBox{
+  border:2px dashed #94a3b8;
+  padding:25px;
+  border-radius:18px;
+  text-align:center
+}
+
+.preview{
+  max-width:280px;
+  max-height:280px;
+  display:none;
+  margin:15px auto;
+  border-radius:15px
+}
+
+.aiResult{
+  margin-top:15px;
+  text-align:left;
+  background:#f8fafc;
+  padding:18px;
+  border-radius:14px
+}
+
+.search{
+  max-width:320px
+}
+
+@media(max-width:600px){
+  main{padding:10px}
+  .panel{padding:14px}
+  .header h1{font-size:22px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>श्री सद्गुरुदेव मोबाइल एक्सेसरीज शॉप</h1>
+  <p>Stock • Sales • Customer • Udhar • WhatsApp • Gemini AI</p>
+</div>
+
+
+<!-- LOGIN -->
+
+<div id="loginBox" class="loginBox">
+
+  <div class="logo">📱</div>
+
+  <h2>Admin Login</h2>
+
+  <p style="text-align:center;color:#64748b">
+    केवल अधिकृत Admin Login कर सकता है।
+  </p>
+
+  <label>Email</label>
+
+  <input
+    id="email"
+    type="email"
+    placeholder="Admin Email"
+  >
+
+  <label>Password</label>
+
+  <input
+    id="password"
+    type="password"
+    placeholder="Password"
+  >
+
+  <button
+    class="primary"
+    style="width:100%"
+    onclick="login()"
+  >
+    🔐 Login
+  </button>
+
+  <div id="loginMessage" class="message hidden"></div>
+
+</div>
+
+
+<!-- APP -->
+
+<div id="app">
+
+<nav>
+
+<button class="active"
+onclick="showSection('dashboard',this)">
+📊 Dashboard
+</button>
+
+<button onclick="showSection('products',this)">
+📦 Stock
+</button>
+
+<button onclick="showSection('customers',this)">
+👤 Customer
+</button>
+
+<button onclick="showSection('udhar',this)">
+💰 Udhar
+</button>
+
+<button onclick="showSection('sales',this)">
+🧾 Sales
+</button>
+
+<button onclick="showSection('ai',this)">
+🤖 Gemini AI
+</button>
+
+<button onclick="logout()">
+🚪 Logout
+</button>
+
+</nav>
+
+
+<main>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="section active">
+
+<h2>📊 Dashboard</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="cardIcon">📦</div>
+<div class="cardTitle">Products</div>
+<div id="totalProducts" class="cardValue">0</div>
+</div>
+
+<div class="card">
+<div class="cardIcon">📊</div>
+<div class="cardTitle">Total Stock</div>
+<div id="totalStock" class="cardValue">0</div>
+</div>
+
+<div class="card">
+<div class="cardIcon">👤</div>
+<div class="cardTitle">Customers</div>
+<div id="totalCustomers" class="cardValue">0</div>
+</div>
+
+<div class="card">
+<div class="cardIcon">💰</div>
+<div class="cardTitle">Total Udhar</div>
+<div id="totalUdhar" class="cardValue">₹0</div>
+</div>
+
+<div class="card">
+<div class="cardIcon">🧾</div>
+<div class="cardTitle">Sales</div>
+<div id="totalSales" class="cardValue">0</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h3>⚡ Quick Actions</h3>
+
+<div class="actions">
+
+<button class="primary"
+onclick="openSection('products')">
+➕ Product
+</button>
+
+<button class="success"
+onclick="openSection('sales')">
+🛒 New Sale
+</button>
+
+<button class="warning"
+onclick="openSection('udhar')">
+💰 Add Udhar
+</button>
+
+<button class="dark"
+onclick="openSection('customers')">
+👤 Customer
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products" class="section">
+
+<h2>📦 Stock Management</h2>
+
+<div class="panel">
+
+<h3>➕ Product Add करें</h3>
+
+<div class="grid">
+
+<div>
+<label>Product Name</label>
+<input id="productName"
+placeholder="Fast Charger">
+</div>
+
+<div>
+<label>Brand</label>
+<input id="productBrand"
+placeholder="Samsung">
+</div>
+
+<div>
+<label>Category</label>
+
+<select id="productCategory">
+
+<option>Mobile Accessories</option>
+<option>Charger</option>
+<option>Cable</option>
+<option>Earphone</option>
+<option>Bluetooth</option>
+<option>Mobile Cover</option>
+<option>Tempered Glass</option>
+<option>Display</option>
+<option>Battery</option>
+<option>Motherboard</option>
+<option>Camera</option>
+<option>Power Button</option>
+<option>Spare Parts</option>
+<option>Other</option>
+
+</select>
+</div>
+
+<div>
+<label>Purchase Price</label>
+<input id="purchasePrice"
+type="number"
+min="0"
+placeholder="0">
+</div>
+
+<div>
+<label>Selling Price</label>
+<input id="sellingPrice"
+type="number"
+min="0"
+placeholder="0">
+</div>
+
+<div>
+<label>Quantity</label>
+<input id="productQty"
+type="number"
+min="0"
+placeholder="0">
+</div>
+
+</div>
+
+<button class="primary"
+onclick="addProduct()">
+➕ Product Save करें
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>📋 Product List</h3>
+
+<input
+id="productSearch"
+class="search"
+oninput="renderProducts()"
+placeholder="🔎 Product Search"
+>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Product</th>
+<th>Brand</th>
+<th>Category</th>
+<th>Purchase</th>
+<th>Selling</th>
+<th>Stock</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="productTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CUSTOMER -->
+
+<section id="customers" class="section">
+
+<h2>👤 Customer Management</h2>
+
+<div class="panel">
+
+<h3>➕ Customer Add करें</h3>
+
+<div class="grid">
+
+<div>
+<label>Customer Name</label>
+<input id="customerName"
+placeholder="Customer Name">
+</div>
+
+<div>
+<label>WhatsApp Number</label>
+<input id="customerPhone"
+placeholder="9455169946">
+</div>
+
+<div>
+<label>Address</label>
+<input id="customerAddress"
+placeholder="Address">
+</div>
+
+</div>
+
+<button class="primary"
+onclick="addCustomer()">
+➕ Customer Save करें
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>👥 Customer List</h3>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>WhatsApp</th>
+<th>Address</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="customerTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- UDHAR -->
+
+<section id="udhar" class="section">
+
+<h2>💰 Udhar Management</h2>
+
+<div class="panel">
+
+<h3>➕ नया Udhar</h3>
+
+<div class="grid">
+
+<div>
+<label>Customer</label>
+<select id="udharCustomer"></select>
+</div>
+
+<div>
+<label>सामान</label>
+<input id="udharProduct"
+placeholder="Samsung Charger">
+</div>
+
+<div>
+<label>कुल राशि</label>
+<input id="udharAmount"
+type="number"
+min="0"
+placeholder="₹">
+</div>
+
+<div>
+<label>खरीद की तारीख</label>
+<input id="udharDate"
+type="date">
+</div>
+
+</div>
+
+<button class="primary"
+onclick="addUdhar()">
+💰 Udhar Save करें
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>📋 Udhar List</h3>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Customer</th>
+<th>Item</th>
+<th>Date</th>
+<th>Total</th>
+<th>Paid</th>
+<th>बाकी</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="udharTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SALES -->
+
+<section id="sales" class="section">
+
+<h2>🧾 Sales Management</h2>
+
+<div class="panel">
+
+<h3>🛒 New Sale</h3>
+
+<div class="grid">
+
+<div>
+<label>Product</label>
+<select id="saleProduct"></select>
+</div>
+
+<div>
+<label>Quantity</label>
+<input
+id="saleQty"
+type="number"
+min="1"
+value="1">
+</div>
+
+<div>
+<label>Customer</label>
+<select id="saleCustomer"></select>
+</div>
+
+<div>
+<label>Payment</label>
+
+<select id="salePayment">
+
+<option>Cash</option>
+<option>UPI</option>
+<option>Udhar</option>
+
+</select>
+
+</div>
+
+</div>
+
+<button class="success"
+onclick="makeSale()">
+🛒 Sale Complete करें
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h3>📋 Sales History</h3>
+
+<div class="tableWrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Date</th>
+<th>Product</th>
+<th>Quantity</th>
+<th>Customer</th>
+<th>Payment</th>
+<th>Total</th>
+</tr>
+
+</thead>
+
+<tbody id="salesTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- AI -->
+
+<section id="ai" class="section">
+
+<h2>🤖 Gemini AI Product Assistant</h2>
+
+<div class="panel">
+
+<div class="aiBox">
+
+<h3>📸 Product की Photo डालें</h3>
+
+<p>
+Photo upload करें और AI से Product की जानकारी प्राप्त करें।
+</p>
+
+<input
+id="aiImage"
+type="file"
+accept="image/*"
+onchange="previewImage(event)"
+>
+
+<img
+id="preview"
+class="preview"
+>
+
+<br>
+
+<button
+id="aiButton"
+class="primary"
+onclick="analyzeImage()">
+🤖 AI से Product पहचानें
+</button>
+
+<div
+id="aiMessage"
+class="message hidden">
+</div>
+
+<div
+id="aiResult"
+class="aiResult hidden">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<script type="module">
+
+/* =====================================================
+ FIREBASE IMPORT
+===================================================== */
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+onAuthStateChanged,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+addDoc,
+getDocs,
+updateDoc,
+deleteDoc,
+doc,
+serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+import {
+getAI,
+getGenerativeModel,
+GoogleAIBackend
+}
+from "https://www.gstatic.com/firebasejs/12.0.0/firebase-ai.js";
+
+
+/* =====================================================
+ YOUR FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+apiKey:
+"AIzaSyBvMECYwr9KlRPuVlZAe5uNzDuAP7I9y2I",
+
+authDomain:
+"shri-sadgurudev-mobile.firebaseapp.com",
+
+projectId:
+"shri-sadgurudev-mobile",
+
+storageBucket:
+"shri-sadgurudev-mobile.firebasestorage.app",
+
+messagingSenderId:
+"126288301619",
+
+appId:
+"1:126288301619:web:e998b199533d0f9fb39d46"
+
+};
+
+
+/* =====================================================
+ INITIALIZE FIREBASE
+===================================================== */
+
+const app =
+initializeApp(firebaseConfig);
+
+const auth =
+getAuth(app);
+
+const db =
+getFirestore(app);
+
+
+/* =====================================================
+ GEMINI AI
+===================================================== */
+
+const ai =
+getAI(app,{
+backend:new GoogleAIBackend()
+});
+
+const model =
+getGenerativeModel(ai,{
+model:"gemini-3.7-flash"
+});
+
+
+/* =====================================================
+ DATA
+===================================================== */
+
+let products=[];
+let customers=[];
+let udhars=[];
+let sales=[];
+
+
+/* =====================================================
+ LOGIN
+===================================================== */
+
+window.login=async function(){
+
+const email=
+document.getElementById("email")
+.value.trim();
+
+const password=
+document.getElementById("password")
+.value;
+
+const message=
+document.getElementById("loginMessage");
+
+
+if(!email || !password){
+
+message.className="message error";
+message.classList.remove("hidden");
+
+message.innerText=
+"Email और Password डालें।";
+
+return;
+}
+
+
+try{
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+}catch(error){
+
+message.className="message error";
+message.classList.remove("hidden");
+
+message.innerText=
+"Login failed: "+error.message;
+
+}
+
+};
+
+
+/* =====================================================
+ AUTH STATE
+===================================================== */
+
+onAuthStateChanged(auth,user=>{
+
+if(user){
+
+if(
+user.email.toLowerCase()
+!=="arpitjanglaw@gmail.com"
+){
+
+signOut(auth);
+
+alert(
+"यह account Admin के लिए authorized नहीं है।"
+);
+
+return;
+}
+
+
+document.getElementById("loginBox")
+.style.display="none";
+
+document.getElementById("app")
+.style.display="block";
+
+loadData();
+
+}else{
+
+document.getElementById("loginBox")
+.style.display="block";
+
+document.getElementById("app")
+.style.display="none";
+
+}
+
+});
+
+
+/* =====================================================
+ LOGOUT
+===================================================== */
+
+window.logout=function(){
+
+signOut(auth);
+
+};
+
+
+/* =====================================================
+ NAVIGATION
+===================================================== */
+
+window.showSection=function(id,button){
+
+document
+.querySelectorAll(".section")
+.forEach(x=>{
+x.classList.remove("active");
+});
+
+
+document
+.getElementById(id)
+.classList.add("active");
+
+
+document
+.querySelectorAll("nav button")
+.forEach(x=>{
+x.classList.remove("active");
+});
+
+
+if(button){
+button.classList.add("active");
+}
+
+};
+
+
+window.openSection=function(id){
+
+const buttons=
+document.querySelectorAll("nav button");
+
+let target=null;
+
+buttons.forEach(button=>{
+
+if(
+button.getAttribute("onclick")
+?.includes("'"+id+"'")
+){
+
+target=button;
+
+}
+
+});
+
+showSection(id,target);
+
+};
+
+
+/* =====================================================
+ LOAD DATA
+===================================================== */
+
+async function loadData(){
+
+try{
+
+products=[];
+customers=[];
+udhars=[];
+sales=[];
+
+
+const p=
+await getDocs(
+collection(db,"products")
+);
+
+p.forEach(x=>{
+
+products.push({
+id:x.id,
+...x.data()
+});
+
+});
+
+
+const c=
+await getDocs(
+collection(db,"customers")
+);
+
+c.forEach(x=>{
+
+customers.push({
+id:x.id,
+...x.data()
+});
+
+});
+
+
+const u=
+await getDocs(
+collection(db,"udhars")
+);
+
+u.forEach(x=>{
+
+udhars.push({
+id:x.id,
+...x.data()
+});
+
+});
+
+
+const s=
+await getDocs(
+collection(db,"sales")
+);
+
+s.forEach(x=>{
+
+sales.push({
+id:x.id,
+...x.data()
+});
+
+});
+
+
+renderAll();
+
+}catch(error){
+
+console.error(error);
+
+alert(
+"Firebase data load नहीं हुआ:\n"+
+error.message
+);
+
+}
+
+}
+
+
+/* =====================================================
+ ADD PRODUCT
+===================================================== */
+
+window.addProduct=async function(){
+
+const name=
+document.getElementById("productName")
+.value.trim();
+
+if(!name){
+
+alert("Product Name डालें।");
+return;
+
+}
+
+
+const data={
+
+name:name,
+
+brand:
+document.getElementById("productBrand")
+.value.trim(),
+
+category:
+document.getElementById("productCategory")
+.value,
+
+purchasePrice:
+Number(
+document.getElementById("purchasePrice")
+.value||0
+),
+
+sellingPrice:
+Number(
+document.getElementById("sellingPrice")
+.value||0
+),
+
+quantity:
+Number(
+document.getElementById("productQty")
+.value||0
+),
+
+createdAt:
+serverTimestamp()
+
+};
+
+
+try{
+
+await addDoc(
+collection(db,"products"),
+data
+);
+
+alert("Product Save हो गया। ✅");
+
+document.getElementById("productName").value="";
+document.getElementById("productBrand").value="";
+document.getElementById("purchasePrice").value="";
+document.getElementById("sellingPrice").value="";
+document.getElementById("productQty").value="";
+
+await loadData();
+
+}catch(error){
+
+alert(
+"Product save नहीं हुआ:\n"+
+error.message
+);
+
+}
+
+};
+
+
+/* =====================================================
+ STOCK + / -
+===================================================== */
+
+window.changeStock=async function(id,change){
+
+const product=
+products.find(x=>x.id===id);
+
+if(!product)return;
+
+
+const current=
+Number(product.quantity||0);
+
+const newStock=
+Math.max(0,current+change);
+
+
+try{
+
+await updateDoc(
+doc(db,"products",id),
+{
+quantity:newStock
+}
+);
+
+await loadData();
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+
+/* =====================================================
+ DELETE PRODUCT
+===================================================== */
+
+window.deleteProduct=async function(id){
+
+if(!confirm("Product Delete करें?"))
+return;
+
+
+try{
+
+await deleteDoc(
+doc(db,"products",id)
+);
+
+await loadData();
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+
+/* =====================================================
+ ADD CUSTOMER
+===================================================== */
+
+window.addCustomer=async function(){
+
+const name=
+document.getElementById("customerName")
+.value.trim();
+
+const phone=
+document.getElementById("customerPhone")
+.value.trim()
+.replace(/\D/g,"");
+
+
+if(!name || !phone){
+
+alert(
+"Customer Name और WhatsApp Number डालें।"
+);
+
+return;
+}
+
+
+if(phone.length!==10){
+
+alert(
+"10 digit WhatsApp number डालें।"
+);
+
+return;
+}
+
+
+try{
+
+await addDoc(
+collection(db,"customers"),
+{
+
+name:name,
+
+phone:phone,
+
+address:
+document.getElementById("customerAddress")
+.value.trim(),
+
+createdAt:
+serverTimestamp()
+
+}
+);
+
+alert("Customer Save हो गया। ✅");
+
+document.getElementById("customerName").value="";
+document.getElementById("customerPhone").value="";
+document.getElementById("customerAddress").value="";
+
+await loadData();
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+
+/* =====================================================
+ ADD UDHAR
+===================================================== */
+
+window.addUdhar=async function(){
+
+const customerId=
+document.getElementById("udharCustomer")
+.value;
+
+const amount=
+Number(
+document.getElementById("udharAmount")
+.value||0
+);
+
+
+if(!customerId){
+
+alert("Customer चुनें।");
+return;
+
+}
+
+
+if(amount<=0){
+
+alert("सही राशि डालें।");
+return;
+
+}
+
+
+const customer=
+customers.find(x=>x.id===customerId);
+
+
+try{
+
+await addDoc(
+collection(db,"udhars"),
+{
+
+customerId:customer.id,
+
+customerName:customer.name,
+
+phone:customer.phone,
+
+item:
+document.getElementById("udharProduct")
+.value.trim(),
+
+amount:amount,
+
+paid:0,
+
+date:
+document.getElementById("udharDate")
+.value,
+
+createdAt:
+serverTimestamp()
+
+}
+);
+
+alert("Udhar Save हो गया। ✅");
+
+document.getElementById("udharProduct").value="";
+document.getElementById("udharAmount").value="";
+
+await loadData();
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+
+/* =====================================================
+ ADD PAYMENT
+===================================================== */
+
+window.addPayment=async function(id){
+
+const item=
+udhars.find(x=>x.id===id);
+
+if(!item)return;
+
+
+const remaining=
+Number(item.amount||0)
+-
+Number(item.paid||0);
+
+
+if(remaining<=0){
+
+alert("Payment पूरी हो चुकी है।");
+return;
+
+}
+
+
+const input=
+prompt(
+"Payment amount डालें।\nबाकी: ₹"+
+remaining
+);
+
+
+if(input===null)return;
+
+
+const payment=
+Number(input);
+
+
+if(
+!Number.isFinite(payment)
+||
+payment<=0
+){
+
+alert("सही amount डालें।");
+return;
+
+}
+
+
+const newPaid=
+Math.min(
+Number(item.amount),
+Number(item.paid||0)+payment
+);
+
+
+try{
+
+await updateDoc(
+doc(db,"udhars",id),
+{
+paid:newPaid
+}
+);
+
+await loadData();
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+
+/* =====================================================
+ WHATSAPP REMINDER
+===================================================== */
+
+window.whatsappReminder=function(id){
+
+const item=
+udhars.find(x=>x.id===id);
+
+if(!item)return;
+
+
+const total=
+Number(item.amount||0);
+
+const paid=
+Number(item.paid||0);
+
+const remaining=
+total-paid;
+
+
+if(remaining<=0){
+
+alert(
+"इस ग्राहक का कोई बाकी payment नहीं है।"
+);
+
+return;
+
+}
+
+
+let phone=
+String(item.phone||"")
+.replace(/\D/g,"");
+
+
+if(phone.length===10)
+phone="91"+phone;
+
+
+const message=
+
+`नमस्ते ${item.customerName} जी 🙏
+
+आपने श्री सद्गुरुदेव मोबाइल एक्सेसरीज शॉप से ${item.item||"सामान"} खरीदा था।
+
+🛍️ सामान: ${item.item||"—"}
+📅 खरीद की तारीख: ${item.date||"—"}
+💰 कुल राशि: ₹${total}
+✅ जमा राशि: ₹${paid}
+💵 बाकी राशि: ₹${remaining}
+
+कृपया सुविधानुसार बाकी राशि का भुगतान कर दें।
+
+धन्यवाद 🙏
+
+श्री सद्गुरुदेव मोबाइल एक्सेसरीज शॉप`;
+
+
+const url=
+"https://wa.me/"+
+phone+
+"?text="+
+encodeURIComponent(message);
+
+
+window.open(url,"_blank");
+
+};
+
+
+/* =====================================================
+ SALE
+===================================================== */
+
+window.makeSale=async function(){
+
+const productId=
+document.getElementById("saleProduct")
+.value;
+
+const quantity=
+Number(
+document.getElementById("saleQty")
+.value||0
+);
+
+const customerId=
+document.getElementById("saleCustomer")
+.value;
+
+const payment=
+document.getElementById("salePayment")
+.value;
+
+
+if(!productId){
+
+alert("Product चुनें।");
+return;
+
+}
+
+
+if(
+!Number.isInteger(quantity)
+||
+quantity<=0
+){
+
+alert("सही quantity डालें।");
+return;
+
+}
+
+
+const product=
+products.find(x=>x.id===productId);
+
+
+if(!product){
+
+alert("Product नहीं मिला।");
+return;
+
+}
+
+
+const stock=
+Number(product.quantity||0);
+
+
+if(quantity>stock){
+
+alert(
+"Stock कम है। Available: "+stock
+);
+
+return;
+
+}
+
+
+const total=
+quantity*
+Number(product.sellingPrice||0);
+
+
+const customer=
+customers.find(x=>x.id===customerId);
+
+
+try{
+
+/* STOCK AUTO MINUS */
+
+await updateDoc(
+doc(db,"products",productId),
+{
+quantity:stock-quantity
+}
+);
+
+
+/* SALES RECORD */
+
+await addDoc(
+collection(db,"sales"),
+{
+
+productId:productId,
+
+productName:product.name,
+
+quantity:quantity,
+
+customerId:customerId||"",
+
+customerName:
+customer?.name||"Walk-in Customer",
+
+payment:payment,
+
+total:total,
+
+date:
+new Date().toLocaleDateString("hi-IN"),
+
+createdAt:
+serverTimestamp()
+
+}
+);
+
+
+/* AUTOMATIC UDHAR */
+
+if(
+payment==="Udhar"
+&&
+customer
+){
+
+await addDoc(
+collection(db,"udhars"),
+{
+
+customerId:customer.id,
+
+customerName:customer.name,
+
+phone:customer.phone,
+
+item:product.name,
+
+amount:total,
+
+paid:0,
+
+date:
+new Date()
+.toISOString()
+.slice(0,10),
+
+createdAt:
+serverTimestamp()
+
+}
+);
+
+}
+
+
+alert(
+"Sale Complete ✅\nStock automatic minus हो गया।"
+);
+
+document.getElementById("saleQty").value=1;
+
+await loadData();
+
+}catch(error){
+
+alert(
+"Sale failed:\n"+error.message
+);
+
+}
+
+};
+
+
+/* =====================================================
+ RENDER ALL
+===================================================== */
+
+function renderAll(){
+
+renderProducts();
+renderCustomers();
+renderUdhar();
+renderSales();
+
+
+document.getElementById("totalProducts")
+.innerText=products.length;
+
+
+document.getElementById("totalStock")
+.innerText=
+products.reduce(
+(sum,x)=>
+sum+Number(x.quantity||0),
+0
+);
+
+
+document.getElementById("totalCustomers")
+.innerText=customers.length;
+
+
+document.getElementById("totalUdhar")
+.innerText=
+"₹"+
+udhars.reduce(
+(sum,x)=>
+sum+
+(
+Number(x.amount||0)
+-
+Number(x.paid||0)
+),
+0
+);
+
+
+document.getElementById("totalSales")
+.innerText=sales.length;
+
+}
+
+
+/* =====================================================
+ RENDER PRODUCTS
+===================================================== */
+
+window.renderProducts=function(){
+
+const search=
+document.getElementById("productSearch")
+.value
+.toLowerCase();
+
+
+const list=
+products.filter(x=>
+
+(
+x.name+
+" "+
+(x.brand||"")+
+" "+
+(x.category||"")
+)
+.toLowerCase()
+.includes(search)
+
+);
+
+
+const table=
+document.getElementById("productTable");
+
+
+if(!list.length){
+
+table.innerHTML=
+`
+<tr>
+<td colspan="7" style="text-align:center">
+अभी कोई Product नहीं है।
+</td>
+</tr>
+`;
+
+return;
+
+}
+
+
+table.innerHTML=
+list.map(x=>{
+
+const stock=
+Number(x.quantity||0);
+
+let badge="badgeGreen";
+
+if(stock===0)
+badge="badge";
+
+else if(stock<=5)
+badge="badgeYellow";
+
+
+return`
+
+<tr>
+
+<td>
+<b>${esc(x.name)}</b>
+</td>
+
+<td>${esc(x.brand||"—")}</td>
+
+<td>${esc(x.category||"—")}</td>
+
+<td>₹${Number(x.purchasePrice||0)}</td>
+
+<td>₹${Number(x.sellingPrice||0)}</td>
+
+<td>
+<span class="${badge}">
+${stock}
+</span>
+</td>
+
+<td>
+
+<div class="actions">
+
+<button
+class="success"
+onclick="changeStock('${x.id}',1)">
++
+</button>
+
+<button
+class="warning"
+onclick="changeStock('${x.id}',-1)">
+−
+</button>
+
+<button
+class="danger"
+onclick="deleteProduct('${x.id}')">
+Delete
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+}).join("");
+
+};
+
+
+/* =====================================================
+ CUSTOMERS
+===================================================== */
+
+function renderCustomers(){
+
+const table=
+document.getElementById("customerTable");
+
+
+if(!customers.length){
+
+table.innerHTML=
+`
+<tr>
+<td colspan="4" style="text-align:center">
+अभी कोई Customer नहीं है।
+</td>
+</tr>
+`;
+
+}else{
+
+table.innerHTML=
+customers.map(x=>{
+
+return`
+
+<tr>
+
+<td>
+<b>${esc(x.name)}</b>
+</td>
+
+<td>${esc(x.phone)}</td>
+
+<td>${esc(x.address||"—")}</td>
+
+<td>
+
+<a
+target="_blank"
+href="https://wa.me/91${esc(x.phone)}">
+
+<button class="success">
+📱 WhatsApp
+</button>
+
+</a>
+
+</td>
+
+</tr>
+
+`;
+
+}).join("");
+
+}
+
+
+/* CUSTOMER DROPDOWNS */
+
+const options=
+`
+<option value="">
+Customer चुनें
+</option>
+`
++
+customers.map(x=>
+
+`
+<option value="${x.id}">
+${esc(x.name)} - ${esc(x.phone)}
+</option>
+`
+
+).join("");
+
+
+document.getElementById("udharCustomer")
+.innerHTML=options;
+
+
+document.getElementById("saleCustomer")
+.innerHTML=options;
+
+}
+
+
+/* =====================================================
+ UDHAR TABLE
+===================================================== */
+
+function renderUdhar(){
+
+const table=
+document.getElementById("udharTable");
+
+
+if(!udhars.length){
+
+table.innerHTML=
+`
+<tr>
+<td colspan="7" style="text-align:center">
+अभी कोई Udhar नहीं है।
+</td>
+</tr>
+`;
+
+return;
+
+}
+
+
+table.innerHTML=
+udhars.map(x=>{
+
+const total=
+Number(x.amount||0);
+
+const paid=
+Number(x.paid||0);
+
+const remaining=
+total-paid;
+
+
+return`
+
+<tr>
+
+<td>
+<b>${esc(x.customerName)}</b>
+</td>
+
+<td>${esc(x.item||"—")}</td>
+
+<td>${esc(x.date||"—")}</td>
+
+<td>₹${total}</td>
+
+<td>₹${paid}</td>
+
+<td>
+
+<span class="${
+remaining>0
+?"badge"
+:"badgeGreen"
+}">
+
+₹${remaining}
+
+</span>
+
+</td>
+
+<td>
+
+<div class="actions">
+
+${
+remaining>0
+?
+`
+<button
+class="success"
+onclick="addPayment('${x.id}')">
+💵 Payment
+</button>
+
+<button
+class="primary"
+onclick="whatsappReminder('${x.id}')">
+📱 WhatsApp
+</button>
+`
+:
+`
+<span class="badgeGreen">
+Paid
+</span>
+`
+}
+
+</div>
+
+</td>
+
+</tr>
+
+`;
+
+}).join("");
+
+}
+
+
+/* =====================================================
+ SALES
+===================================================== */
+
+function renderSales(){
+
+const table=
+document.getElementById("salesTable");
+
+
+if(!sales.length){
+
+table.innerHTML=
+`
+<tr>
+<td colspan="6" style="text-align:center">
+अभी कोई Sales नहीं है।
+</td>
+</tr>
+`;
+
+}else{
+
+table.innerHTML=
+sales.map(x=>
+
+`
+<tr>
+
+<td>${esc(x.date||"—")}</td>
+
+<td>${esc(x.productName||"—")}</td>
+
+<td>${Number(x.quantity||0)}</td>
+
+<td>${esc(x.customerName||"Walk-in")}</td>
+
+<td>${esc(x.payment||"—")}</td>
+
+<td>₹${Number(x.total||0)}</td>
+
+</tr>
+`
+
+).join("");
+
+}
+
+
+/* PRODUCT DROPDOWN */
+
+document.getElementById("saleProduct")
+.innerHTML=
+`
+<option value="">
+Product चुनें
+</option>
+`
++
+products.map(x=>
+
+`
+<option value="${x.id}">
+${esc(x.name)}
+-
+Stock: ${Number(x.quantity||0)}
+-
+₹${Number(x.sellingPrice||0)}
+</option>
+`
+
+).join("");
+
+}
+
+
+/* =====================================================
+ IMAGE PREVIEW
+===================================================== */
+
+window.previewImage=function(event){
+
+const file=
+event.target.files?.[0];
+
+const image=
+document.getElementById("preview");
+
+
+if(!file){
+
+image.style.display="none";
+return;
+
+}
+
+
+image.src=
+URL.createObjectURL(file);
+
+image.style.display="block";
+
+};
+
+
+/* =====================================================
+ FILE BASE64
+===================================================== */
+
+function fileToPart(file){
+
+return new Promise(
+(resolve,reject)=>{
+
+const reader=
+new FileReader();
+
+reader.onload=()=>{
+
+const result=
+String(reader.result);
+
+resolve({
+
+inlineData:{
+
+data:
+result.split(",")[1],
+
+mimeType:
+file.type
+
+}
+
+});
+
+};
+
+reader.onerror=reject;
+
+reader.readAsDataURL(file);
+
+});
+
+}
+
+
+/* =====================================================
+ GEMINI AI
+===================================================== */
+
+window.analyzeImage=async function(){
+
+const file=
+document.getElementById("aiImage")
+.files?.[0];
+
+const message=
+document.getElementById("aiMessage");
+
+const result=
+document.getElementById("aiResult");
+
+const button=
+document.getElementById("aiButton");
+
+
+if(!file){
+
+message.className="message error";
+message.classList.remove("hidden");
+
+message.innerText=
+"पहले Product की photo चुनें।";
+
+return;
+
+}
+
+
+button.disabled=true;
+
+button.innerText=
+"🤖 AI पहचान रहा है...";
+
+message.className="message";
+message.classList.remove("hidden");
+
+message.innerText=
+"Product photo analyze हो रही है...";
+
+result.classList.add("hidden");
+
+
+try{
+
+const imagePart=
+await fileToPart(file);
+
+
+const prompt=`
+
+आप मोबाइल एक्सेसरीज दुकान के inventory assistant हैं।
+
+इस product image को analyze करें।
+
+केवल valid JSON में उत्तर दें।
+
+Format:
+
+{
+"brand":"",
+"productName":"",
+"category":"",
+"title":"",
+"description":"",
+"keywords":[]
+}
+
+अगर brand स्पष्ट नहीं है तो Unknown लिखें।
+
+Product की जानकारी का अनुमान लगाते समय
+अत्यधिक certainty न दिखाएं।
+
+`;
+
+
+const response=
+await model.generateContent([
+
+prompt,
+
+imagePart
+
+]);
+
+
+const text=
+response.response.text();
+
+
+const clean=
+text
+.replace(/```json/gi,"")
+.replace(/```/g,"")
+.trim();
+
+
+let data;
+
+
+try{
+
+data=
+JSON.parse(clean);
+
+}catch{
+
+data={
+
+brand:"Unknown",
+
+productName:"Unknown",
+
+category:"Other",
+
+title:"AI Suggestion",
+
+description:text,
+
+keywords:[]
+
+};
+
+}
+
+
+window.aiData=data;
+
+
+result.classList.remove("hidden");
+
+
+result.innerHTML=
+
+`
+
+<h3>🤖 AI Result</h3>
+
+<p>
+<b>Brand:</b>
+${esc(data.brand||"Unknown")}
+</p>
+
+<p>
+<b>Product Name:</b>
+${esc(data.productName||"")}
+</p>
+
+<p>
+<b>Category:</b>
+${esc(data.category||"")}
+</p>
+
+<p>
+<b>Title:</b>
+${esc(data.title||"")}
+</p>
+
+<p>
+<b>Description:</b>
+${esc(data.description||"")}
+</p>
+
+<p>
+<b>Keywords:</b>
+${Array.isArray(data.keywords)
+?data.keywords.map(esc).join(", ")
+:""}
+</p>
+
+<button
+class="primary"
+onclick="useAIData()">
+📦 Product Form में डालें
+</button>
+
+`;
+
+
+message.className="message ok";
+
+message.innerText=
+"AI analysis complete ✅";
+
+
+}catch(error){
+
+console.error(error);
+
+message.className=
+"message error";
+
+message.innerText=
+"Gemini AI Error:\n"+
+error.message+
+"\n\nअगर App Check error आ रहा है तो Firebase App Check setup पूरा करें।";
+
+}finally{
+
+button.disabled=false;
+
+button.innerText=
+"🤖 AI से Product पहचानें";
+
+}
+
+};
+
+
+/* =====================================================
+ USE AI DATA
+===================================================== */
+
+window.useAIData=function(){
+
+const data=
+window.aiData;
+
+if(!data)return;
+
+
+document.getElementById("productName")
+.value=data.productName||"";
+
+
+document.getElementById("productBrand")
+.value=data.brand||"";
+
+
+const category=
+String(data.category||"");
+
+
+const select=
+document.getElementById("productCategory");
+
+
+const option=
+[...select.options]
+.find(x=>
+x.value.toLowerCase()
+===category.toLowerCase()
+);
+
+
+if(option)
+select.value=option.value;
+
+
+openSection("products");
+
+
+alert(
+"AI information Product form में डाल दी गई है।\n\n"+
+"Price और Quantity भरकर Product Save करें।"
+);
+
+};
+
+
+/* =====================================================
+ ESCAPE HTML
+===================================================== */
+
+function esc(value){
+
+return String(value??"")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+
+}
+
+</script>
+
+</body>
+</html>
