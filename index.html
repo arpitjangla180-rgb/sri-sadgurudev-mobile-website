@@ -2,8 +2,8 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>श्री सद्गुरुदेव मोबाइल</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shri Sadgurudev Mobile Shop</title>
 
 <style>
 *{box-sizing:border-box}
@@ -17,7 +17,6 @@ color:#111827
 
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
-
 .hidden{display:none!important}
 
 .login{
@@ -410,7 +409,6 @@ font-size:11px
 }
 
 @media print{
-
 body{
 background:#fff!important;
 margin:0
@@ -435,27 +433,15 @@ margin:0
 .print-bill{
 page-break-inside:avoid
 }
-
 }
 
 @media(max-width:900px){
-
-.cards{
-grid-template-columns:1fr 1fr
-}
-
-.grid3{
-grid-template-columns:1fr 1fr
-}
-
+.cards{grid-template-columns:1fr 1fr}
+.grid3{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:650px){
-
-.layout{
-display:block
-}
-
+.layout{display:block}
 aside{
 width:100%;
 display:flex;
@@ -474,7 +460,6 @@ grid-template-columns:1fr
 main{
 padding:12px
 }
-
 }
 </style>
 </head>
@@ -489,7 +474,7 @@ padding:12px
 
 <div class="logo">📱</div>
 
-<h1>श्री सद्गुरुदेव मोबाइल</h1>
+<h1>Shri Sadgurudev Mobile Shop</h1>
 
 <div class="subtitle">
 Mobile Accessories & Spare Parts
@@ -522,7 +507,7 @@ Mobile Accessories & Spare Parts
 <header>
 
 <div class="brand">
-📱 श्री सद्गुरुदेव मोबाइल
+📱 Shri Sadgurudev Mobile Shop
 </div>
 
 <div>
@@ -531,7 +516,6 @@ Mobile Accessories & Spare Parts
 </div>
 
 </header>
-
 
 <div class="layout">
 
@@ -575,9 +559,7 @@ Mobile Accessories & Spare Parts
 
 </aside>
 
-
 <main>
-
 
 <!-- DASHBOARD -->
 
@@ -610,11 +592,8 @@ Mobile Accessories & Spare Parts
 </div>
 
 <div class="panel">
-
 <h3>📅 आज की Sale</h3>
-
 <div id="todaySalesSummary"></div>
-
 </div>
 
 </div>
@@ -633,7 +612,6 @@ Mobile Accessories & Spare Parts
 </button>
 
 </div>
-
 
 <div id="productForm" class="panel hidden">
 
@@ -728,7 +706,6 @@ Cancel
 </button>
 
 </div>
-
 
 <div class="panel">
 
@@ -831,6 +808,7 @@ Cancel
 <table>
 
 <thead>
+
 <tr>
 <th>Photo</th>
 <th>Name</th>
@@ -838,6 +816,7 @@ Cancel
 <th>Address</th>
 <th>Admin</th>
 </tr>
+
 </thead>
 
 <tbody id="customersTable"></tbody>
@@ -945,7 +924,6 @@ Cancel
 
 </div>
 
-
 <div id="saleForm" class="panel hidden">
 
 <h3>New Sale</h3>
@@ -1000,7 +978,6 @@ Cancel
 </button>
 
 </div>
-
 
 <div class="panel">
 
@@ -1192,11 +1169,7 @@ onchange="previewImage(this,'aiPreview')">
 
 <div id="toast" class="toast"></div>
 
-
-<!-- XLSX -->
-
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-
 
 <script type="module">
 
@@ -1236,7 +1209,7 @@ from
 "https://www.gstatic.com/firebasejs/12.0.0/firebase-storage.js";
 
 
-/* FIREBASE CONFIG */
+/* FIREBASE CONFIG — SAME */
 
 const firebaseConfig={
 apiKey:"AIzaSyBvMECYwr9KlRPuVlZAe5uNzDuAP7I9y2I",
@@ -1247,20 +1220,12 @@ messagingSenderId:"126288301619",
 appId:"1:126288301619:web:e998b199533d0f9fb39d46"
 };
 
-
 const app=initializeApp(firebaseConfig);
-
 const auth=getAuth(app);
-
 const db=getFirestore(app);
-
 const storage=getStorage(app);
 
-
-/* ADMIN EMAIL */
-
 const ADMIN_EMAIL="arpitjanglaw@gmail.com";
-
 
 let products=[];
 let customers=[];
@@ -1268,36 +1233,23 @@ let udhars=[];
 let sales=[];
 
 
-/* LOGIN */
-
 window.login=async function(){
 
-const email=
-document.getElementById("loginEmail").value.trim();
-
-const password=
-document.getElementById("loginPassword").value;
-
-const error=
-document.getElementById("loginError");
+const email=document.getElementById("loginEmail").value.trim();
+const password=document.getElementById("loginPassword").value;
+const error=document.getElementById("loginError");
 
 error.textContent="";
 
 if(!email||!password){
-
 error.textContent="Email और Password डालें।";
-
 return;
-
 }
 
 try{
 
-const result=
-await signInWithEmailAndPassword(
-auth,
-email,
-password
+const result=await signInWithEmailAndPassword(
+auth,email,password
 );
 
 if(
@@ -1306,35 +1258,22 @@ ADMIN_EMAIL.toLowerCase()
 ){
 
 await signOut(auth);
-
 error.textContent="यह Admin account नहीं है।";
-
 }
 
 }catch(e){
-
-error.textContent=
-"Login failed: "+e.message;
-
+error.textContent="Login failed: "+e.message;
 }
 
 };
 
 
-/* LOGOUT */
-
 window.logout=async function(){
-
 await signOut(auth);
-
 };
 
 
-/* AUTH */
-
-onAuthStateChanged(
-auth,
-async user=>{
+onAuthStateChanged(auth,async user=>{
 
 if(user){
 
@@ -1344,41 +1283,33 @@ ADMIN_EMAIL.toLowerCase()
 ){
 
 await signOut(auth);
-
 return;
 
 }
 
-document
-.getElementById("loginScreen")
+document.getElementById("loginScreen")
 .classList.add("hidden");
 
-document
-.getElementById("app")
+document.getElementById("app")
 .classList.remove("hidden");
 
-document
-.getElementById("currentUser")
+document.getElementById("currentUser")
 .textContent=user.email;
 
 await loadAll();
 
 }else{
 
-document
-.getElementById("loginScreen")
+document.getElementById("loginScreen")
 .classList.remove("hidden");
 
-document
-.getElementById("app")
+document.getElementById("app")
 .classList.add("hidden");
 
 }
 
 });
 
-
-/* LOAD ALL */
 
 async function loadAll(){
 
@@ -1398,14 +1329,10 @@ async function loadProducts(){
 
 products=[];
 
-const snap=
-await getDocs(collection(db,"products"));
+const snap=await getDocs(collection(db,"products"));
 
 snap.forEach(x=>{
-products.push({
-id:x.id,
-...x.data()
-});
+products.push({id:x.id,...x.data()});
 });
 
 }
@@ -1415,14 +1342,10 @@ async function loadCustomers(){
 
 customers=[];
 
-const snap=
-await getDocs(collection(db,"customers"));
+const snap=await getDocs(collection(db,"customers"));
 
 snap.forEach(x=>{
-customers.push({
-id:x.id,
-...x.data()
-});
+customers.push({id:x.id,...x.data()});
 });
 
 }
@@ -1432,14 +1355,10 @@ async function loadUdhar(){
 
 udhars=[];
 
-const snap=
-await getDocs(collection(db,"udhars"));
+const snap=await getDocs(collection(db,"udhars"));
 
 snap.forEach(x=>{
-udhars.push({
-id:x.id,
-...x.data()
-});
+udhars.push({id:x.id,...x.data()});
 });
 
 }
@@ -1449,20 +1368,14 @@ async function loadSales(){
 
 sales=[];
 
-const snap=
-await getDocs(collection(db,"sales"));
+const snap=await getDocs(collection(db,"sales"));
 
 snap.forEach(x=>{
-sales.push({
-id:x.id,
-...x.data()
-});
+sales.push({id:x.id,...x.data()});
 });
 
 }
 
-
-/* ADMIN */
 
 function requireAdmin(){
 
@@ -1473,7 +1386,6 @@ ADMIN_EMAIL.toLowerCase()
 ){
 
 toast("केवल Admin यह काम कर सकता है।");
-
 return false;
 
 }
@@ -1483,79 +1395,57 @@ return true;
 }
 
 
-/* PRODUCT FORM */
-
 window.openProductForm=function(){
 
 if(!requireAdmin())return;
 
-document
-.getElementById("productForm")
+document.getElementById("productForm")
 .classList.remove("hidden");
 
 };
 
+
 window.closeProductForm=function(){
 
-document
-.getElementById("productForm")
+document.getElementById("productForm")
 .classList.add("hidden");
 
 };
 
 
-/* SAVE PRODUCT */
-
 window.saveProduct=async function(){
 
 if(!requireAdmin())return;
 
-const id=
-document.getElementById("productId").value;
+const id=document.getElementById("productId").value;
 
-let warranty=
-Number(
+let warranty=Number(
 document.getElementById("warrantyMonths").value
 );
 
 if(!warranty){
-
-warranty=
-Number(
+warranty=Number(
 document.getElementById("warrantyPreset").value
 );
-
 }
 
 const data={
 
-name:
-document.getElementById("productName").value.trim(),
+name:document.getElementById("productName").value.trim(),
 
-brand:
-document.getElementById("productBrand").value.trim(),
+brand:document.getElementById("productBrand").value.trim(),
 
-category:
-document.getElementById("productCategory").value,
+category:document.getElementById("productCategory").value,
 
-quantity:
-Number(
+quantity:Number(
 document.getElementById("productQty").value||0
 ),
 
-/*
-IMPORTANT:
-Purchase price database में रहेगा,
-लेकिन customer bill में कभी render नहीं होगा.
-*/
-
-purchasePrice:
-Number(
+purchasePrice:Number(
 document.getElementById("purchasePrice").value||0
 ),
 
-sellingPrice:
-Number(
+sellingPrice:Number(
 document.getElementById("sellingPrice").value||0
 ),
 
@@ -1566,30 +1456,24 @@ updatedAt:serverTimestamp()
 };
 
 if(!data.name){
-
 toast("Product name डालें।");
-
 return;
-
 }
 
 try{
 
-const file=
-document.getElementById("productPhoto").files[0];
+const file=document.getElementById("productPhoto").files[0];
 
 if(file){
 
-const storageRef=
-ref(
+const storageRef=ref(
 storage,
 "products/"+Date.now()+"_"+file.name
 );
 
 await uploadBytes(storageRef,file);
 
-data.photoURL=
-await getDownloadURL(storageRef);
+data.photoURL=await getDownloadURL(storageRef);
 
 }
 
@@ -1622,7 +1506,6 @@ toast("Product save हो गया।");
 }catch(e){
 
 console.error(e);
-
 toast("Error: "+e.message);
 
 }
@@ -1630,46 +1513,28 @@ toast("Error: "+e.message);
 };
 
 
-/* EDIT PRODUCT */
-
 window.editProduct=function(id){
 
 if(!requireAdmin())return;
 
-const p=
-products.find(x=>x.id===id);
+const p=products.find(x=>x.id===id);
 
 if(!p)return;
 
-document
-.getElementById("productForm")
+document.getElementById("productForm")
 .classList.remove("hidden");
 
 document.getElementById("productId").value=p.id;
-
 document.getElementById("productName").value=p.name||"";
-
 document.getElementById("productBrand").value=p.brand||"";
-
-document.getElementById("productCategory").value=
-p.category||"Accessories";
-
-document.getElementById("productQty").value=
-p.quantity||0;
-
-document.getElementById("purchasePrice").value=
-p.purchasePrice||0;
-
-document.getElementById("sellingPrice").value=
-p.sellingPrice||0;
-
-document.getElementById("warrantyMonths").value=
-p.warrantyMonths||0;
+document.getElementById("productCategory").value=p.category||"Accessories";
+document.getElementById("productQty").value=p.quantity||0;
+document.getElementById("purchasePrice").value=p.purchasePrice||0;
+document.getElementById("sellingPrice").value=p.sellingPrice||0;
+document.getElementById("warrantyMonths").value=p.warrantyMonths||0;
 
 };
 
-
-/* DELETE PRODUCT */
 
 window.deleteProduct=async function(id){
 
@@ -1677,12 +1542,9 @@ if(!requireAdmin())return;
 
 if(!confirm("Product delete करना है?"))return;
 
-await deleteDoc(
-doc(db,"products",id)
-);
+await deleteDoc(doc(db,"products",id));
 
 await loadProducts();
-
 renderAll();
 
 toast("Product delete हो गया।");
@@ -1690,19 +1552,15 @@ toast("Product delete हो गया।");
 };
 
 
-/* STOCK */
-
 window.changeStock=async function(id,value){
 
 if(!requireAdmin())return;
 
-const p=
-products.find(x=>x.id===id);
+const p=products.find(x=>x.id===id);
 
 if(!p)return;
 
-const qty=
-Math.max(
+const qty=Math.max(
 0,
 Number(p.quantity||0)+Number(value)
 );
@@ -1716,52 +1574,42 @@ updatedAt:serverTimestamp()
 );
 
 await loadProducts();
-
 renderAll();
 
 };
 
 
-/* CUSTOMER FORM */
-
 window.openCustomerForm=function(){
 
 if(!requireAdmin())return;
 
-document
-.getElementById("customerForm")
+document.getElementById("customerForm")
 .classList.remove("hidden");
 
 };
 
+
 window.closeCustomerForm=function(){
 
-document
-.getElementById("customerForm")
+document.getElementById("customerForm")
 .classList.add("hidden");
 
 };
 
 
-/* SAVE CUSTOMER */
-
 window.saveCustomer=async function(){
 
 if(!requireAdmin())return;
 
-const id=
-document.getElementById("customerId").value;
+const id=document.getElementById("customerId").value;
 
 const data={
 
-name:
-document.getElementById("customerName").value.trim(),
+name:document.getElementById("customerName").value.trim(),
 
-phone:
-document.getElementById("customerPhone").value.trim(),
+phone:document.getElementById("customerPhone").value.trim(),
 
-address:
-document.getElementById("customerAddress").value.trim(),
+address:document.getElementById("customerAddress").value.trim(),
 
 updatedAt:serverTimestamp()
 
@@ -1770,26 +1618,22 @@ updatedAt:serverTimestamp()
 if(!data.name||!data.phone){
 
 toast("Name और Mobile डालें।");
-
 return;
 
 }
 
-const file=
-document.getElementById("customerPhoto").files[0];
+const file=document.getElementById("customerPhoto").files[0];
 
 if(file){
 
-const r=
-ref(
+const r=ref(
 storage,
 "customers/"+Date.now()+"_"+file.name
 );
 
 await uploadBytes(r,file);
 
-data.photoURL=
-await getDownloadURL(r);
+data.photoURL=await getDownloadURL(r);
 
 }
 
@@ -1822,34 +1666,24 @@ toast("Customer save हो गया।");
 };
 
 
-/* EDIT CUSTOMER */
-
 window.editCustomer=function(id){
 
 if(!requireAdmin())return;
 
-const c=
-customers.find(x=>x.id===id);
+const c=customers.find(x=>x.id===id);
 
 if(!c)return;
 
-document
-.getElementById("customerForm")
+document.getElementById("customerForm")
 .classList.remove("hidden");
 
 document.getElementById("customerId").value=c.id;
-
 document.getElementById("customerName").value=c.name||"";
-
 document.getElementById("customerPhone").value=c.phone||"";
-
-document.getElementById("customerAddress").value=
-c.address||"";
+document.getElementById("customerAddress").value=c.address||"";
 
 };
 
-
-/* DELETE CUSTOMER */
 
 window.deleteCustomer=async function(id){
 
@@ -1857,46 +1691,36 @@ if(!requireAdmin())return;
 
 if(!confirm("Customer delete करना है?"))return;
 
-await deleteDoc(
-doc(db,"customers",id)
-);
+await deleteDoc(doc(db,"customers",id));
 
 await loadCustomers();
-
 renderAll();
 
 };
 
 
-/* UDHAR FORM */
-
 window.openUdharForm=function(){
 
 if(!requireAdmin())return;
 
-document
-.getElementById("udharForm")
+document.getElementById("udharForm")
 .classList.remove("hidden");
 
 populateCustomerSelect("udharCustomer");
 
-document
-.getElementById("udharDate")
-.value=
+document.getElementById("udharDate").value=
 new Date().toISOString().slice(0,10);
 
 };
 
+
 window.closeUdharForm=function(){
 
-document
-.getElementById("udharForm")
+document.getElementById("udharForm")
 .classList.add("hidden");
 
 };
 
-
-/* SAVE UDHAR */
 
 window.saveUdhar=async function(){
 
@@ -1905,18 +1729,15 @@ if(!requireAdmin())return;
 const customerId=
 document.getElementById("udharCustomer").value;
 
-const c=
-customers.find(x=>x.id===customerId);
+const c=customers.find(x=>x.id===customerId);
 
-const amount=
-Number(
+const amount=Number(
 document.getElementById("udharAmount").value||0
 );
 
 if(!c||amount<=0){
 
 toast("Customer और amount सही भरें।");
-
 return;
 
 }
@@ -1926,19 +1747,11 @@ collection(db,"udhars"),
 {
 
 customerId,
-
 customerName:c.name,
-
-product:
-document.getElementById("udharProduct").value,
-
+product:document.getElementById("udharProduct").value,
 amount,
-
-date:
-document.getElementById("udharDate").value,
-
+date:document.getElementById("udharDate").value,
 paid:false,
-
 createdAt:serverTimestamp()
 
 }
@@ -1955,8 +1768,6 @@ toast("Udhar save हो गया।");
 };
 
 
-/* PAID */
-
 window.markUdharPaid=async function(id){
 
 if(!requireAdmin())return;
@@ -1970,13 +1781,10 @@ paidAt:serverTimestamp()
 );
 
 await loadUdhar();
-
 renderAll();
 
 };
 
-
-/* DELETE UDHAR */
 
 window.deleteUdhar=async function(id){
 
@@ -1984,91 +1792,64 @@ if(!requireAdmin())return;
 
 if(!confirm("Udhar delete करना है?"))return;
 
-await deleteDoc(
-doc(db,"udhars",id)
-);
+await deleteDoc(doc(db,"udhars",id));
 
 await loadUdhar();
-
 renderAll();
 
 };
 
 
-/* SALE FORM */
-
 window.openSaleForm=function(){
 
 if(!requireAdmin())return;
 
-document
-.getElementById("saleForm")
+document.getElementById("saleForm")
 .classList.remove("hidden");
 
 populateCustomerSelect("saleCustomer");
-
 populateProductSelect();
 
 updateSaleWarranty();
 
 };
 
+
 window.closeSaleForm=function(){
 
-document
-.getElementById("saleForm")
+document.getElementById("saleForm")
 .classList.add("hidden");
 
 };
 
 
-document
-.getElementById("saleProduct")
-.addEventListener(
-"change",
-updateSaleWarranty
-);
+document.getElementById("saleProduct")
+.addEventListener("change",updateSaleWarranty);
 
-document
-.getElementById("saleQty")
-.addEventListener(
-"input",
-updateSaleWarranty
-);
+document.getElementById("saleQty")
+.addEventListener("input",updateSaleWarranty);
 
-
-/* WARRANTY PREVIEW */
 
 function updateSaleWarranty(){
 
-const id=
-document.getElementById("saleProduct").value;
+const id=document.getElementById("saleProduct").value;
 
-const p=
-products.find(x=>x.id===id);
+const p=products.find(x=>x.id===id);
 
-const box=
-document.getElementById("saleWarrantyPreview");
+const box=document.getElementById("saleWarrantyPreview");
 
 if(!p){
 
 box.textContent="Product select करें।";
-
 return;
 
 }
 
-const months=
-Number(p.warrantyMonths||0);
+const months=Number(p.warrantyMonths||0);
 
 const start=new Date();
 
-const end=
-months>0
-?
-addMonths(start,months)
-:
-null;
+const end=months>0?addMonths(start,months):null;
 
 box.innerHTML=
 months>0
@@ -2081,14 +1862,10 @@ months>0
 <b>End:</b> ${formatDate(end)}
 `
 :
-`
-<b>Warranty:</b> No Warranty
-`;
+`<b>Warranty:</b> No Warranty`;
 
 }
 
-
-/* SAVE SALE */
 
 window.saveSale=async function(){
 
@@ -2100,24 +1877,20 @@ document.getElementById("saleProduct").value;
 const customerId=
 document.getElementById("saleCustomer").value;
 
-const qty=
-Number(
+const qty=Number(
 document.getElementById("saleQty").value||0
 );
 
 const payment=
 document.getElementById("salePayment").value;
 
-const p=
-products.find(x=>x.id===productId);
+const p=products.find(x=>x.id===productId);
 
-const c=
-customers.find(x=>x.id===customerId);
+const c=customers.find(x=>x.id===customerId);
 
 if(!p||qty<=0){
 
 toast("Product और quantity सही भरें।");
-
 return;
 
 }
@@ -2125,7 +1898,6 @@ return;
 if(Number(p.quantity||0)<qty){
 
 toast("इतना stock उपलब्ध नहीं है।");
-
 return;
 
 }
@@ -2135,8 +1907,7 @@ const now=new Date();
 const warrantyMonths=
 Number(p.warrantyMonths||0);
 
-const warrantyStart=
-now.toISOString();
+const warrantyStart=now.toISOString();
 
 const warrantyEnd=
 warrantyMonths>0
@@ -2147,69 +1918,46 @@ null;
 
 
 /*
-CUSTOMER BILL PRICE:
-केवल Selling Price इस्तेमाल होगा.
-Purchase Price यहाँ intentionally नहीं लिया गया.
+Customer Bill में सिर्फ Selling Price.
+Purchase Price कभी bill में render नहीं होगा.
 */
 
 const sellingPrice=
 Number(p.sellingPrice||0);
 
-const total=
-sellingPrice*qty;
+const total=sellingPrice*qty;
 
 const saleData={
 
 customerId:c?c.id:"",
-
 customerName:c?c.name:"Walk-in",
-
 customerPhone:c?c.phone:"",
-
 productId:p.id,
-
 productName:p.name,
-
 brand:p.brand||"",
-
 category:p.category||"",
-
 quantity:qty,
-
 unitPrice:sellingPrice,
-
 total:total,
-
 payment:payment,
-
 warrantyMonths:warrantyMonths,
-
 warrantyStart:warrantyStart,
-
 warrantyEnd:warrantyEnd,
-
 date:now.toISOString(),
-
 dateMs:now.getTime(),
-
 createdAt:serverTimestamp()
 
 };
 
-
-const saleRef=
-await addDoc(
+const saleRef=await addDoc(
 collection(db,"sales"),
 saleData
 );
 
-
 await updateDoc(
 doc(db,"products",p.id),
 {
-quantity:
-Number(p.quantity||0)-qty,
-
+quantity:Number(p.quantity||0)-qty,
 updatedAt:serverTimestamp()
 }
 );
@@ -2217,7 +1965,6 @@ updatedAt:serverTimestamp()
 closeSaleForm();
 
 await loadProducts();
-
 await loadSales();
 
 renderAll();
@@ -2234,31 +1981,23 @@ id:saleRef.id,
 };
 
 
-/* DELETE SALE */
-
 window.deleteSale=async function(id){
 
 if(!requireAdmin())return;
 
 if(!confirm("Sale delete करना है?"))return;
 
-await deleteDoc(
-doc(db,"sales",id)
-);
+await deleteDoc(doc(db,"sales",id));
 
 await loadSales();
-
 renderAll();
 
 };
 
 
-/* PRINT BILL */
-
 window.printBill=function(id){
 
-const s=
-sales.find(x=>x.id===id);
+const s=sales.find(x=>x.id===id);
 
 if(!s)return;
 
@@ -2269,13 +2008,11 @@ printBills([s]);
 
 function printBills(list){
 
-const old=
-document.getElementById("printArea");
+const old=document.getElementById("printArea");
 
 if(old)old.remove();
 
-const area=
-document.createElement("div");
+const area=document.createElement("div");
 
 area.id="printArea";
 
@@ -2283,9 +2020,7 @@ area.innerHTML=
 `
 <div class="print-page">
 
-${list.map(
-s=>createBillHTML(s)
-).join("")}
+${list.map(s=>createBillHTML(s)).join("")}
 
 </div>
 `;
@@ -2297,9 +2032,7 @@ setTimeout(()=>{
 window.print();
 
 setTimeout(()=>{
-
 area.remove();
-
 },1000);
 
 },300);
@@ -2307,40 +2040,26 @@ area.remove();
 }
 
 
-/* PROFESSIONAL BILL */
-
 function createBillHTML(s){
 
 const billNo=
-"SGM-"+String(s.id)
-.slice(-8)
-.toUpperCase();
+"SGM-"+String(s.id).slice(-8).toUpperCase();
 
-const date=
-new Date(s.date||Date.now());
+const date=new Date(s.date||Date.now());
 
 const warrantyMonths=
 Number(s.warrantyMonths||0);
 
-const start=
-s.warrantyStart
-?
-new Date(s.warrantyStart)
-:
-date;
+const start=s.warrantyStart?
+new Date(s.warrantyStart):date;
 
-const end=
-s.warrantyEnd
-?
-new Date(s.warrantyEnd)
-:
-null;
+const end=s.warrantyEnd?
+new Date(s.warrantyEnd):null;
 
 
 /*
-NOTE:
-Purchase Price is NOT rendered here.
-Customer only sees Selling Price.
+IMPORTANT:
+Purchase Price यहाँ नहीं दिखाया गया है.
 */
 
 return`
@@ -2349,7 +2068,7 @@ return`
 
 <div class="shop-header">
 
-<h1>श्री सद्गुरुदेव मोबाइल</h1>
+<h1>Shri Sadgurudev Mobile Shop</h1>
 
 <div class="tagline">
 MOBILE ACCESSORIES & SPARE PARTS
@@ -2369,11 +2088,9 @@ MOBILE ACCESSORIES & SPARE PARTS
 
 </div>
 
-
 <div class="invoice-title">
-TAX / SALES INVOICE
+SALES INVOICE
 </div>
-
 
 <div class="bill-meta">
 
@@ -2389,7 +2106,6 @@ ${formatDate(date)}
 
 </div>
 
-
 <div class="bill-meta-box">
 
 <b>Customer:</b>
@@ -2404,27 +2120,19 @@ ${escapeHTML(s.customerPhone||"-")}
 
 </div>
 
-
 <table class="bill-table">
 
 <thead>
 
 <tr>
-
 <th>#</th>
-
 <th>Product Description</th>
-
 <th>Qty</th>
-
 <th>Rate</th>
-
 <th>Amount</th>
-
 </tr>
 
 </thead>
-
 
 <tbody>
 
@@ -2464,7 +2172,6 @@ ${Number(s.quantity||0)}
 
 </table>
 
-
 <div class="bill-total-area">
 
 <div class="bill-total">
@@ -2503,7 +2210,6 @@ ${escapeHTML(s.payment||"")}
 
 </div>
 
-
 <div class="warranty-box">
 
 <strong>🛡️ WARRANTY INFORMATION</strong>
@@ -2537,10 +2243,9 @@ ${end?formatDate(end):"-"}
 
 <br>
 
-कृपया Warranty Claim के समय यह Original Bill प्रस्तुत करें।
+Warranty Claim के समय यह Original Bill प्रस्तुत करें।
 
 </div>
-
 
 <div class="bill-footer">
 
@@ -2553,11 +2258,10 @@ ${end?formatDate(end):"-"}
 <br><br>
 
 <strong>
-श्री सद्गुरुदेव मोबाइल
+Shri Sadgurudev Mobile Shop
 </strong>
 
 </div>
-
 
 <div class="signature">
 
@@ -2574,30 +2278,10 @@ Authorized Signature
 }
 
 
-/* 2 BILLS ON ONE A4 */
-
-window.printTwoBills=function(id1,id2){
-
-const a=
-sales.find(x=>x.id===id1);
-
-const b=
-sales.find(x=>x.id===id2);
-
-printBills(
-[a,b].filter(Boolean)
-);
-
-};
-
-
-/* 28 DAYS */
-
 function sales28(){
 
 const cutoff=
-Date.now()-
-28*24*60*60*1000;
+Date.now()-28*24*60*60*1000;
 
 return sales.filter(s=>{
 
@@ -2616,19 +2300,15 @@ return d>=cutoff;
 }
 
 
-/* SELECT CUSTOMER */
-
 function populateCustomerSelect(id){
 
-const select=
-document.getElementById(id);
+const select=document.getElementById(id);
 
 if(!select)return;
 
 select.innerHTML=
 '<option value="">Customer चुनें</option>'+
-customers.map(
-c=>
+customers.map(c=>
 `
 <option value="${c.id}">
 ${escapeHTML(c.name)}
@@ -2640,19 +2320,15 @@ ${escapeHTML(c.name)}
 }
 
 
-/* SELECT PRODUCTS */
-
 function populateProductSelect(){
 
-const select=
-document.getElementById("saleProduct");
+const select=document.getElementById("saleProduct");
 
 if(!select)return;
 
 select.innerHTML=
 '<option value="">Product चुनें</option>'+
-products.map(
-p=>
+products.map(p=>
 `
 <option value="${p.id}">
 ${escapeHTML(p.name)}
@@ -2665,18 +2341,14 @@ ${escapeHTML(p.name)}
 }
 
 
-/* RENDER PRODUCTS */
-
 function renderProducts(){
 
-const tbody=
-document.getElementById("productsTable");
+const tbody=document.getElementById("productsTable");
 
 tbody.innerHTML=
 products.length
 ?
-products.map(
-p=>
+products.map(p=>
 `
 <tr>
 
@@ -2699,9 +2371,7 @@ style="width:45px;height:45px;object-fit:cover;border-radius:7px">`
 
 <br>
 
-<small>
-${escapeHTML(p.category||"")}
-</small>
+<small>${escapeHTML(p.category||"")}</small>
 
 </td>
 
@@ -2723,16 +2393,13 @@ onclick="changeStock('${p.id}',-1)">
 
 </td>
 
-
 <td>
 ₹${Number(p.purchasePrice||0).toFixed(2)}
 </td>
 
-
 <td>
 ₹${Number(p.sellingPrice||0).toFixed(2)}
 </td>
-
 
 <td>
 
@@ -2745,7 +2412,6 @@ p.warrantyMonths+" Month(s)"
 }
 
 </td>
-
 
 <td>
 
@@ -2770,18 +2436,14 @@ Delete
 }
 
 
-/* CUSTOMERS */
-
 function renderCustomers(){
 
-const tbody=
-document.getElementById("customersTable");
+const tbody=document.getElementById("customersTable");
 
 tbody.innerHTML=
 customers.length
 ?
-customers.map(
-c=>
+customers.map(c=>
 `
 <tr>
 
@@ -2827,18 +2489,14 @@ Delete
 }
 
 
-/* UDHAR */
-
 function renderUdhar(){
 
-const tbody=
-document.getElementById("udharTable");
+const tbody=document.getElementById("udharTable");
 
 tbody.innerHTML=
 udhars.length
 ?
-udhars.map(
-u=>
+udhars.map(u=>
 `
 <tr>
 
@@ -2893,20 +2551,16 @@ Delete
 }
 
 
-/* SALES */
-
 function renderSales(){
 
-const tbody=
-document.getElementById("salesTable");
+const tbody=document.getElementById("salesTable");
 
 const list=sales28();
 
 tbody.innerHTML=
 list.length
 ?
-list.map(
-s=>
+list.map(s=>
 `
 <tr>
 
@@ -2969,8 +2623,6 @@ Delete
 }
 
 
-/* DASHBOARD */
-
 function updateDashboard(){
 
 document.getElementById("totalProducts")
@@ -2980,21 +2632,15 @@ document.getElementById("totalCustomers")
 .textContent=customers.length;
 
 const pending=
-udhars
-.filter(x=>!x.paid)
-.reduce(
-(a,x)=>a+Number(x.amount||0),
-0
-);
+udhars.filter(x=>!x.paid)
+.reduce((a,x)=>a+Number(x.amount||0),0);
 
 document.getElementById("totalUdhar")
 .textContent=pending.toFixed(2);
 
 const total=
-sales28()
-.reduce(
-(a,x)=>a+Number(x.total||0),
-0
+sales28().reduce(
+(a,x)=>a+Number(x.total||0),0
 );
 
 document.getElementById("totalSales")
@@ -3004,22 +2650,17 @@ const today=new Date();
 
 today.setHours(0,0,0,0);
 
-const todayList=
-sales.filter(
-s=>
-Number(s.dateMs)>=today.getTime()
+const todayList=sales.filter(
+s=>Number(s.dateMs)>=today.getTime()
 );
 
-const todayTotal=
-todayList.reduce(
-(a,x)=>a+Number(x.total||0),
-0
+const todayTotal=todayList.reduce(
+(a,x)=>a+Number(x.total||0),0
 );
 
 document.getElementById(
 "todaySalesSummary"
 ).innerHTML=
-
 `
 
 <div class="kpi">
@@ -3043,48 +2684,32 @@ document.getElementById(
 }
 
 
-/* RENDER ALL */
-
 function renderAll(){
 
 renderProducts();
-
 renderCustomers();
-
 renderUdhar();
-
 renderSales();
-
 updateDashboard();
-
-populateCustomerSelect(
-"whatsappCustomer"
-);
+populateCustomerSelect("whatsappCustomer");
 
 }
 
 
-/* WHATSAPP */
-
 window.showCustomerUdhar=function(){
 
-const id=
-document
-.getElementById("whatsappCustomer")
-.value;
+const id=document.getElementById(
+"whatsappCustomer"
+).value;
 
-const c=
-customers.find(x=>x.id===id);
+const c=customers.find(x=>x.id===id);
 
-const list=
-udhars.filter(
+const list=udhars.filter(
 u=>u.customerId===id&&!u.paid
 );
 
-const total=
-list.reduce(
-(a,x)=>a+Number(x.amount||0),
-0
+const total=list.reduce(
+(a,x)=>a+Number(x.amount||0),0
 );
 
 document.getElementById(
@@ -3116,37 +2741,31 @@ Pending Udhar:
 
 window.sendWhatsAppReminder=function(){
 
-const id=
-document
-.getElementById("whatsappCustomer")
-.value;
+const id=document.getElementById(
+"whatsappCustomer"
+).value;
 
-const c=
-customers.find(x=>x.id===id);
+const c=customers.find(x=>x.id===id);
 
 if(!c){
 
 toast("Customer चुनें।");
-
 return;
 
 }
 
-const list=
-udhars.filter(
+const list=udhars.filter(
 u=>u.customerId===id&&!u.paid
 );
 
-const total=
-list.reduce(
-(a,x)=>a+Number(x.amount||0),
-0
+const total=list.reduce(
+(a,x)=>a+Number(x.amount||0),0
 );
 
 const message=
 `नमस्ते ${c.name} जी 🙏
 
-श्री सद्गुरुदेव मोबाइल
+Shri Sadgurudev Mobile Shop
 
 आपके खाते में ₹${total.toFixed(2)} की राशि बाकी है।
 
@@ -3154,21 +2773,18 @@ const message=
 
 धन्यवाद 🙏
 
-श्री सद्गुरुदेव मोबाइल
+Shri Sadgurudev Mobile Shop
 9455169946`;
 
 window.open(
 "https://wa.me/"+
 normalizePhone(c.phone)+
-"?text="+
-encodeURIComponent(message),
+"?text="+encodeURIComponent(message),
 "_blank"
 );
 
 };
 
-
-/* EXCEL FULL */
 
 window.downloadExcel=function(){
 
@@ -3176,33 +2792,19 @@ if(!requireAdmin())return;
 
 const wb=XLSX.utils.book_new();
 
-
-/*
-Purchase Price Excel में Admin के लिए रहेगा.
-Customer bill में नहीं.
-*/
-
 XLSX.utils.book_append_sheet(
 wb,
 XLSX.utils.json_to_sheet(
 products.map(p=>({
 
 ID:p.id,
-
 Product:p.name||"",
-
 Brand:p.brand||"",
-
 Category:p.category||"",
-
 Quantity:p.quantity||0,
-
 PurchasePrice:p.purchasePrice||0,
-
 SellingPrice:p.sellingPrice||0,
-
 WarrantyMonths:p.warrantyMonths||0,
-
 Photo:p.photoURL||""
 
 }))
@@ -3210,20 +2812,15 @@ Photo:p.photoURL||""
 "Products"
 );
 
-
 XLSX.utils.book_append_sheet(
 wb,
 XLSX.utils.json_to_sheet(
 customers.map(c=>({
 
 ID:c.id,
-
 Name:c.name||"",
-
 Mobile:c.phone||"",
-
 Address:c.address||"",
-
 Photo:c.photoURL||""
 
 }))
@@ -3231,22 +2828,16 @@ Photo:c.photoURL||""
 "Customers"
 );
 
-
 XLSX.utils.book_append_sheet(
 wb,
 XLSX.utils.json_to_sheet(
 udhars.map(u=>({
 
 ID:u.id,
-
 Customer:u.customerName||"",
-
 Product:u.product||"",
-
 Amount:u.amount||0,
-
 Date:u.date||"",
-
 Status:u.paid?"Paid":"Pending"
 
 }))
@@ -3254,41 +2845,28 @@ Status:u.paid?"Paid":"Pending"
 "Udhar"
 );
 
-
 XLSX.utils.book_append_sheet(
 wb,
 XLSX.utils.json_to_sheet(
 sales28().map(s=>({
 
 ID:s.id,
-
 Date:s.date||"",
-
 Customer:s.customerName||"",
-
 Mobile:s.customerPhone||"",
-
 Product:s.productName||"",
-
 Quantity:s.quantity||0,
-
 SellingPrice:s.unitPrice||0,
-
 Total:s.total||0,
-
 Payment:s.payment||"",
-
 WarrantyMonths:s.warrantyMonths||0,
-
 WarrantyStart:s.warrantyStart||"",
-
 WarrantyEnd:s.warrantyEnd||""
 
 }))
 ),
 "Sales_28_Days"
 );
-
 
 XLSX.writeFile(
 wb,
@@ -3300,37 +2878,24 @@ toast("Full Excel Backup तैयार है।");
 };
 
 
-/* SALES EXCEL */
-
 window.downloadSales28Excel=function(){
 
 if(!requireAdmin())return;
 
 const wb=XLSX.utils.book_new();
 
-const data=
-sales28().map(s=>({
+const data=sales28().map(s=>({
 
 Date:s.date||"",
-
 Customer:s.customerName||"",
-
 Mobile:s.customerPhone||"",
-
 Product:s.productName||"",
-
 Quantity:s.quantity||0,
-
 SellingPrice:s.unitPrice||0,
-
 Total:s.total||0,
-
 Payment:s.payment||"",
-
 Warranty:s.warrantyMonths||0,
-
 WarrantyStart:s.warrantyStart||"",
-
 WarrantyEnd:s.warrantyEnd||""
 
 }));
@@ -3351,14 +2916,11 @@ toast("28 दिन की Sales Excel तैयार है।");
 };
 
 
-/* GEMINI */
-
 window.analyzeProductWithGemini=function(){
 
 document.getElementById(
 "aiResult"
 ).innerHTML=
-
 `
 <div class="panel">
 
@@ -3369,8 +2931,7 @@ Photo select हो गई है।
 </p>
 
 <p>
-Gemini को Firebase AI Logic से सुरक्षित तरीके से connect करना चाहिए।
-Secret API key को सीधे public HTML में रखना सुरक्षित नहीं है।
+Gemini को Firebase AI Logic से connect किया जा सकता है।
 </p>
 
 </div>
@@ -3379,58 +2940,40 @@ Secret API key को सीधे public HTML में रखना सुर�
 };
 
 
-/* NAVIGATION */
-
 window.showPage=function(page,button){
 
-document
-.querySelectorAll(".page")
-.forEach(
-x=>x.classList.remove("active")
-);
+document.querySelectorAll(".page")
+.forEach(x=>x.classList.remove("active"));
 
-document
-.getElementById(page)
+document.getElementById(page)
 .classList.add("active");
 
-document
-.querySelectorAll(".nav")
-.forEach(
-x=>x.classList.remove("active")
-);
+document.querySelectorAll(".nav")
+.forEach(x=>x.classList.remove("active"));
 
-if(button)
-button.classList.add("active");
+if(button)button.classList.add("active");
 
 };
 
-
-/* IMAGE PREVIEW */
 
 window.previewImage=function(input,target){
 
 const file=input.files[0];
 
-const img=
-document.getElementById(target);
+const img=document.getElementById(target);
 
 if(!file){
 
 img.style.display="none";
-
 return;
 
 }
 
-img.src=
-URL.createObjectURL(file);
-
+img.src=URL.createObjectURL(file);
 img.style.display="block";
 
 };
 
-
-/* WARRANTY */
 
 function addMonths(date,months){
 
@@ -3438,14 +2981,10 @@ const d=new Date(date);
 
 const originalDay=d.getDate();
 
-d.setMonth(
-d.getMonth()+Number(months)
-);
+d.setMonth(d.getMonth()+Number(months));
 
 if(d.getDate()!==originalDay){
-
 d.setDate(0);
-
 }
 
 return d;
@@ -3453,19 +2992,12 @@ return d;
 }
 
 
-/* HELPERS */
-
 function formatDate(value){
 
-const d=
-value instanceof Date
-?
-value
-:
-new Date(value);
+const d=value instanceof Date?
+value:new Date(value);
 
-if(isNaN(d.getTime()))
-return "-";
+if(isNaN(d.getTime()))return "-";
 
 return d.toLocaleDateString(
 "en-IN",
@@ -3481,12 +3013,10 @@ year:"numeric"
 
 function normalizePhone(phone){
 
-let p=
-String(phone||"")
+let p=String(phone||"")
 .replace(/\D/g,"");
 
-if(p.length===10)
-p="91"+p;
+if(p.length===10)p="91"+p;
 
 return p;
 
@@ -3514,11 +3044,9 @@ return escapeHTML(value);
 
 function toast(message){
 
-const el=
-document.getElementById("toast");
+const el=document.getElementById("toast");
 
 el.textContent=message;
-
 el.style.display="block";
 
 setTimeout(
