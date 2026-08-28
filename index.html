@@ -1395,8 +1395,7 @@ getDocs,
 doc,
 updateDoc,
 deleteDoc,
-serverTimestamp,
-runTransaction
+serverTimestamp
 }
 from
 "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
@@ -2899,78 +2898,12 @@ console.error(e);
 }
 
 
-
-/* =========================
-   PERSISTENT BILL SERIAL
-   01, 02, 03 ... (NO DAILY RESET)
-========================= */
-async function getNextBillNo(){
-  const counterRef = doc(db,"settings","billing");
-  const snap = await getDoc(counterRef);
-
-  let nextNumber = 1;
-  if(snap.exists()){
-    nextNumber = Number((snap.data() || {}).nextBillNumber || 1);
-  }
-
-  await setDoc(
-    counterRef,
-    { nextBillNumber: nextNumber + 1 },
-    { merge:true }
-  );
-
-  return String(nextNumber).padStart(2,"0");
-}
-
 /* CREATE ONE BILL */
-
-/*
-   GLOBAL SERIAL BILL NUMBER
-   01, 02, 03... लगातार बढ़ता रहेगा।
-   Daily reset नहीं होगा। Counter Firestore में रखा जाता है।
-*/
-async function getNextBillNumber(){
-
-const counterRef=doc(db,"settings","billing");
-
-const nextNumber=await runTransaction(db,async(transaction)=>{
-
-const snap=await transaction.get(counterRef);
-
-let current=0;
-
-if(snap.exists()){
-current=Number(snap.data().lastBillNumber||0);
-}
-
-/* पुराने SGM bill numbers से पहली बार counter initialize करें */
-if(!snap.exists() && sales.length){
-const oldNumbers=sales.map(s=>{
-const m=String(s.billNo||"").match(/(?:SGM-)?(\d+)$/i);
-return m?Number(m[1]):0;
-});
-current=Math.max(0,...oldNumbers);
-}
-
-const next=current+1;
-
-transaction.set(counterRef,{
-lastBillNumber:next,
-updatedAt:serverTimestamp()
-},{merge:true});
-
-return next;
-});
-
-return String(nextNumber).padStart(2,"0");
-}
-
-const billSerial=await getNextBillNumber();
 
 const saleData={
 
-billNo: await getNextBillNo(),
-
+billNo:
+"SGM-"+Date.now().toString().slice(-8),
 
 customerId:
 
